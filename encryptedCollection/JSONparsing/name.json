@@ -1,0 +1,28 @@
+[
+  {
+    "answers": [
+      "选项A: 泰族",
+      "选项B: 苗族",
+      "选项C: 壮族",
+      "选项D: 京族"
+    ],
+    "mid": "1222144346",
+    "question": "歌棚“是哪个民族的习俗?",
+    "trueAnswer": "选项C: 壮族,",
+    "type": "旅游",
+    "url": "https://www.sheup.net/info_tiku_3.php?id=95&s=1222144346",
+    "version": 4
+  },
+  {
+    "answers": [
+      "选项A: 蒙古族",
+      "选项B: 维吾尔族"
+    ],
+    "mid": "1225593949",
+    "question": "马头琴是我国哪一民族的拉旋乐器?",
+    "trueAnswer": "选项A: 蒙古族,",
+    "type": "旅游",
+    "url": "https://www.sheup.net/info_tiku_3.php?id=95&s=1225593949",
+    "version": 4
+  }
+]

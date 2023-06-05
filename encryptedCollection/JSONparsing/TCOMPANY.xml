@@ -1,0 +1,18 @@
+<xml xmlns:s='uuid:BDC6E3F0-6DA3-11d1-A2A3-00AA00C14882'
+     xmlns:dt='uuid:C2F41010-65B3-11d1-A29F-00AA00C14882'
+     xmlns:rs='urn:schemas-microsoft-com:rowset'
+     xmlns:z='#RowsetSchema'>
+    <s:Schema id='RowsetSchema'>
+        <s:ElementType name='row'>
+            <s:AttributeType  name='grade'   rs:number='1'>
+                <s:datatype   dt:type='varchar'   dt:maxLength='64'/>
+            </s:AttributeType>
+            <s:AttributeType   name='sex'   rs:number='8'>
+                <s:datatype   dt:type='numeric'   dt:maxLength='22'/>
+            </s:AttributeType>
+        </s:ElementType>
+    </s:Schema>
+    <rs:data>
+        <z:row  grade='2' sex='男' />
+    </rs:data>
+</xml>

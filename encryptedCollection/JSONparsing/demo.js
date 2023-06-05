@@ -236,3 +236,83 @@
 //         console.log(error);
 //     });
 
+// 写死的方式
+// XML -> JSON 代码：
+// pip install xml-js
+// let xml = '<xml xmlns:s=\'uuid:BDC6E3F0-6DA3-11d1-A2A3-00AA00C14882\'\n' +
+//     '     xmlns:dt=\'uuid:C2F41010-65B3-11d1-A29F-00AA00C14882\'\n' +
+//     '     xmlns:rs=\'urn:schemas-microsoft-com:rowset\'\n' +
+//     '     xmlns:z=\'#RowsetSchema\'>\n' +
+//     '    <s:Schema id=\'RowsetSchema\'>\n' +
+//     '        <s:ElementType name=\'row\'>\n' +
+//     '            <s:AttributeType  name=\'grade\'   rs:number=\'1\'>\n' +
+//     '                <s:datatype   dt:type=\'varchar\'   dt:maxLength=\'64\'/>\n' +
+//     '            </s:AttributeType>\n' +
+//     '            <s:AttributeType   name=\'sex\'   rs:number=\'8\'>\n' +
+//     '                <s:datatype   dt:type=\'numeric\'   dt:maxLength=\'22\'/>\n' +
+//     '            </s:AttributeType>\n' +
+//     '        </s:ElementType>\n' +
+//     '    </s:Schema>\n' +
+//     '    <rs:data>\n' +
+//     '        <z:row  grade=\'2\' sex=\'男\' />\n' +
+//     '    </rs:data>\n' +
+//     '</xml>\n'
+// let convert = require('xml-js');
+// let result1 = convert.xml2json(xml);
+// console.log(result1);
+
+// 读取文件的方式
+// XML -> JSON 代码：
+// pip install xml-js
+// let filepath = '.\\TCOMPANY.xml'
+// const fs = require('fs');
+// let convert = require('xml-js');
+// let xml = fs.readFileSync(filepath,'utf-8');
+// let result1 = convert.xml2json(xml, {compact: true, spaces: 4});
+// console.log(result1);
+
+
+// 写死的方式
+// JSON -> XML 代码：
+// pip install json2xml
+// let convert = require('json2xml');
+// let json = {"alexa":{"@attributes":{"ver":"0.9","url":"http://coursesweb.net/","home":"0","aid":"="},"#text":"","sd":[{"@attributes":{"title":"a","host":"coursesweb.net"},"#text":"","title":{"#text":"CoursesWeb: php, mysql, html, css, javascript, ajax, jquery, actionscript, flash"},"linksin":{"@attributes":{"num":"1102"}},"speed":{"@attributes":{"pct":"51"},"#text":"4578"}},{"#text":"","popularity":{"#text":"5777"},"reach":{"@attributes":{"rank":"5952"}},"rank":{"@attributes":{"url":"http://coursesweb.net/"},"#text":"6667"}}]}};
+// let xml_content = convert(json);
+// console.log(xml_content);
+
+
+// 读取文件的方式
+// JSON -> XML 代码：
+// pip install json2xml
+// let filepath = '.\\config.json'
+// const fs = require('fs');
+// let convert = require('json2xml');
+// let jsonstr = fs.readFileSync(filepath,'utf-8');
+// let xml_content = convert(JSON.parse(jsonstr));
+// console.log(xml_content);
+
+
+// JSON -> excel 代码：
+// 可以利用nodeJS把这个json文件转成xlsx文件输出，当然浏览器环境也可以做到，网上有相关的方法。
+// 我这里使用了fs模块和第三方模块json2xls,所以要先安装json2xls：
+// npm install json2xls -D
+// 然后利用readFile读取json文件，在回调函数中遍历数组，在对象temp中定义表格需要展示的字段，再把temp添加到一个新的数组jsonArray。接着把jsonArray作为参数去调用json2xls方法，最后使用writeFileSync输出xlsx文件。
+// const fs = require('fs')
+// const json2xls = require('json2xls');
+// fs.readFile('./name.json','utf8',(err,data)=>{
+//     if (err) throw err;
+//     const json = JSON.parse(data);
+//     const jsonArray = [];
+//     json.forEach(function(item){
+//         let temp = {
+//             '类型' : item.type,
+//             '问题' : item.question,
+//             '答案' : item.trueAnswer
+//         }
+//         jsonArray.push(temp);
+//     });
+//
+//     let xls = json2xls(jsonArray);
+//
+//     fs.writeFileSync('name.xlsx', xls, 'binary');
+// })
